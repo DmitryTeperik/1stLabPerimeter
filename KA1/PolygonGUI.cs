@@ -43,18 +43,18 @@ namespace KA1
             return true;
         }
 
-        public override double TryCreatePolygon(ref long progress, ref long total)
+        public void CreatePolygonGUI(ref long progress, ref long total)
         {
-            MaxPerimeter = base.TryCreatePolygon(ref progress, ref total);
+            MaxPerimeter = base.CreatePolygon(ref progress, ref total);
             if (MaxPerimeter > 0)
             {
                 for(int i = 0; i < points.Count; ++i)
                 {
                     canvas.DrawLine(Pens.Coral, points[i].X, points[i].Y, points[(i + 1) % points.Count].X, points[(i + 1) % points.Count].Y);
                 }
-                return 1;
+               
             }
-            return 0;
+            return ;
         }
 
         public void Clear()

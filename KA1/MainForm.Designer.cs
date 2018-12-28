@@ -67,7 +67,7 @@
             // 
             // prgbLoad
             // 
-            this.prgbLoad.Location = new System.Drawing.Point(174, 518);
+            this.prgbLoad.Location = new System.Drawing.Point(255, 518);
             this.prgbLoad.Name = "prgbLoad";
             this.prgbLoad.Size = new System.Drawing.Size(257, 23);
             this.prgbLoad.TabIndex = 3;
@@ -75,7 +75,7 @@
             // btnAbort
             // 
             this.btnAbort.Enabled = false;
-            this.btnAbort.Location = new System.Drawing.Point(437, 518);
+            this.btnAbort.Location = new System.Drawing.Point(174, 518);
             this.btnAbort.Name = "btnAbort";
             this.btnAbort.Size = new System.Drawing.Size(75, 23);
             this.btnAbort.TabIndex = 4;
@@ -87,7 +87,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(524, 551);
+            this.ClientSize = new System.Drawing.Size(521, 555);
             this.Controls.Add(this.btnAbort);
             this.Controls.Add(this.prgbLoad);
             this.Controls.Add(this.btnClear);

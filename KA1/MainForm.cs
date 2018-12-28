@@ -18,14 +18,12 @@ namespace KA1
         long total; //перестановок всего
         Thread th; //поток для выполнения задачи
         bool start; //флажок состояния (начало программы - true, выполнение и конец - false)
-        bool end;
         public MainForm()
         {
             InitializeComponent();
             polygon = new PolygonGUI(pbMain);
             Application.Idle += OnIdle;
             start = true;
-            end = false;
             progress = 0;
             total = 1;
         }
@@ -41,22 +39,16 @@ namespace KA1
                 prgbLoad.Value = (int)(((double)progress / total) * 100);
                 btnAbort.Enabled = true;
             }
-            if(!start && !th.IsAlive && !end)
+           if(!start && !th.IsAlive)
             {
                 btnAbort.Enabled = false;
                 prgbLoad.Value = 100;
-                if(polygon.points.Count == 0)
-                {
-                    MessageBox.Show("Выпуклый многоугольник получить нельзя!", "Предупреждение", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    end = true;
-                }
             }
         }
 
         private void btnClear_Click(object sender, EventArgs e)
         {
             start = true;
-            end = false;
             if (th != null) th.Abort();
             polygon.Clear();
         }
@@ -70,7 +62,7 @@ namespace KA1
         private void btnFind_Click(object sender, EventArgs e)
         {
             start = false;
-            th = new Thread(() => polygon.TryCreatePolygon(ref progress, ref total));
+            th = new Thread(() => polygon.CreatePolygonGUI(ref progress, ref total));
             th.Start();
         }
 

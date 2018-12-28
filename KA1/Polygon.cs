@@ -19,6 +19,7 @@ namespace KA1
         {
             points.Add(new Point(X, Y, points.Count));
         }
+       
         //алгоритм генерации следующей перестановки
         public void nextPermutation()
         {
@@ -84,7 +85,7 @@ namespace KA1
             return sum;
         }
 
-        public virtual double TryCreatePolygon(ref long progress, ref long total)
+        public virtual double CreatePolygon(ref long progress, ref long total)
         {
             total = Utils.FactNaive(points.Count - 1);
             progress = 0;
@@ -99,10 +100,8 @@ namespace KA1
                     perimeter = PerPol();
                     if (MaxPerimeter < perimeter) {
                         MaxPerimeter = perimeter;
-                        
                         res = new List<Point>(points);
-                    }   
-                  //неправильно работает проверка на пересечения  
+                    }  
                 }
                 nextPermutation();
                 ++progress;

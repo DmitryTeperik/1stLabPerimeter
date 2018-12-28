@@ -20,25 +20,12 @@ namespace KA1
         {
             return (b.X - a.X) * (c.Y - a.Y) - (b.Y - a.Y) * (c.X - a.X);
         }
-
-        private static bool intersect_1(int a, int b, int c, int d)
-        {
-            if (a > b) Utils.Swap(ref a, ref b);
-            if (c > d) Utils.Swap(ref c, ref d);
-            return Math.Max(a, c) <= Math.Min(b, d);
-        }
-
         
         /// <summary>
         /// метод проверяет, пересекаются ли отрезки ab и cd
         /// </summary>
         public static bool Intersect(Point a1, Point a2, Point b1, Point b2)
         {
-            /*return intersect_1(a.X, b.X, c.X, d.X)
-                && intersect_1(a.Y, b.Y, c.Y, d.Y)
-                && Math.Abs(Math.Sign(Area(a, b, c)) - Math.Sign(Area(a, b, d))) == 2 //разные знаки у площадей
-                && Math.Abs(Math.Sign(Area(c, d, a)) - Math.Sign(Area(c, d, b))) == 2;
-        */
 
             if (a1.X >= a2.X)
                 Utils.Swap(ref a1, ref a2);

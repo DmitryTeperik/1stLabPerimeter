@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace KA1
 {
-    class Point : ICloneable
+    class Point 
     {
         public int X { get; set; }
         public int Y { get; set; }
@@ -18,9 +18,5 @@ namespace KA1
             this.n = n;
         }
 
-        public object Clone()
-        {
-            return new Point(this.X, this.Y, this.n);
-        }
     }
 }
